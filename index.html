@@ -1,0 +1,133 @@
+  <!DOCTYPE html>
+  <html>                                                                                  
+  <head>                                                                                  
+    <meta charset="UTF-8">                                                                
+    <meta name="viewport" content="width=device-width, initial-scale=1">                  
+    <meta name="apple-itunes-app" content="app-id=6760842437">                            
+    <title>BlastChain</title>                                                             
+    <style>                                                                               
+      * { margin: 0; padding: 0; box-sizing: border-box; }                                
+                                                                                          
+      body {                                                                              
+        background: #0d0020;                                                              
+        min-height: 100vh;                                                                
+        display: flex;                                                                    
+        align-items: center;                                                              
+        justify-content: center;                                                          
+        font-family: -apple-system, sans-serif;                                           
+      }                                                                                   
+                                                                                          
+      /* Arka plan karartma */                                                            
+      .overlay {                                                                          
+        position: fixed; inset: 0;                                                        
+        background: rgba(0,0,0,0.5);                                                      
+        animation: fadeIn .3s ease;                                                       
+      }                                                                                   
+                                                                                          
+      /* Alt modal */                                                                     
+      .modal {                                                                            
+        position: fixed;                                                                  
+        bottom: 0; left: 0; right: 0;                                                     
+        background: #1a0035;                                                              
+        border-radius: 24px 24px 0 0;                                                     
+        padding: 20px 24px 40px;                                                          
+        animation: slideUp .35s ease;                                                     
+        z-index: 10;                                                                      
+      }                                                                                   
+                                                                                          
+      .handle {                                                                           
+        width: 40px; height: 4px;                                                         
+        background: rgba(255,255,255,0.3);                                                
+        border-radius: 2px;                                                               
+        margin: 0 auto 20px;                                                              
+      }                                                                                   
+                                                                                          
+      .app-row {                                                                          
+        display: flex;                                                                    
+        align-items: center;                                                              
+        gap: 14px;                                                                        
+        margin-bottom: 20px;                                                              
+      }                                                                                   
+                                                                                          
+      .app-row img {                                                                      
+        width: 64px; height: 64px;                                                        
+        border-radius: 16px;                                                              
+      }                                                                                   
+                                                                                          
+      .app-info h2 {                                                                      
+        color: #fff;                                                                      
+        font-size: 18px;                                                                  
+        font-weight: 700;                                                                 
+      }                                                                                   
+                                                                                          
+      .app-info p {                                                                       
+        color: rgba(255,255,255,0.5);                                                     
+        font-size: 13px;                                                                  
+        margin-top: 2px;                                                                  
+      }                                                                                   
+                                                                                          
+      .download-btn {                                                                     
+        display: flex;                                                                    
+        align-items: center;                                                              
+        justify-content: center;                                                          
+        gap: 10px;                                                                        
+        width: 100%;                                                                      
+        padding: 16px;                                                                    
+        border-radius: 16px;                                                              
+        font-size: 16px;                                                                  
+        font-weight: 700;                                                                 
+        text-decoration: none;                                                            
+        border: none;                                                                     
+        cursor: pointer;                                                                  
+      }                                                                                   
+                                                                                          
+      .android-btn { background: #00c853; color: #000; }                                  
+      .ios-btn     { background: #007aff; color: #fff; }                                  
+                                                                                          
+      @keyframes slideUp {                                                                
+        from { transform: translateY(100%); }                                             
+        to   { transform: translateY(0); }                                                
+      }                                                                                   
+      @keyframes fadeIn {                                                                 
+        from { opacity: 0; }                                                              
+        to   { opacity: 1; }                                                              
+      }                                                                                   
+    </style>                                                                              
+  </head>                                                                                 
+  <body>                                                                                  
+                                                                                          
+    <div class="overlay"></div>                                                           
+                                                                                          
+    <div class="modal">                                                                   
+      <div class="handle"></div>                                                          
+                                                                                          
+      <div class="app-row">                                                               
+        <!-- Buraya oyun ikonunu koy -->                                                  
+        <img src="icon.png" alt="BlastChain">                                             
+        <div class="app-info">                                                            
+          <h2>BlastChain</h2>                                                             
+          <p>Ücretsiz • Puzzle</p>                                                        
+        </div>                                                                            
+      </div>                                                                              
+                                                                                          
+      <a id="store-btn" class="download-btn" href="#">Yükleniyor...</a>                   
+    </div>                                                                                
+                                                                                          
+    <script>                                                                              
+      const ua = navigator.userAgent.toLowerCase();                                       
+      const isIOS = /iphone|ipad|ipod/.test(ua);                                          
+      const btn   = document.getElementById('store-btn');                                 
+                                                                                          
+      if (isIOS) {                                                                        
+        btn.textContent = '🍎  App Store\'dan İndir';                                     
+        btn.className   = 'download-btn ios-btn';                                         
+        btn.href        = 'https://apps.apple.com/app/id6760842437';                      
+      } else {                                                                            
+        btn.textContent = '▶  Google Play\'den İndir';                                    
+        btn.className   = 'download-btn android-btn';                                     
+        btn.href        = 'https://play.google.com/store/apps/details?id=com.blastchain'; 
+      }                                                                                   
+    </script>                                                                             
+                                                                                          
+  </body>                                                                                 
+  </html>  
